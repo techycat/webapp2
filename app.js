@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+app.set('port', parseInt(process.env.OPENSHIFT_INTERNAL_PORT) || 3000);
+app.set('ipaddr', process.env.OPENSHIFT_INTERNAL_IP || 127.0.0.1);
 var app = express();
 
 // view engine setup
